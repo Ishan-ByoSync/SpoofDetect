@@ -23,9 +23,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import com.example.spoofdetect.ui.theme.SpoofDetectTheme
-import com.mv.engine.FaceBox
-import com.mv.engine.FaceDetector
-import com.mv.engine.Live
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
 

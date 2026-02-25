@@ -18,19 +18,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        // 👉 tell Gradle which ABIs to build for
-        ndk {
-            abiFilters += listOf("arm64-v8a", "armeabi-v7a")
-        }
-
-        // (optional) exter
-//     nalNativeBuild.defaultConfig block if you want to pass args
-//         externalNativeBuild {
-//             cmake {
-//                 // arguments "-DANDROID_STL=c++_shared"
-//             }
-//         }
     }
 
     buildTypes {
@@ -53,17 +40,14 @@ android {
     buildFeatures {
         compose = true
     }
-
-    // 👉 this actually hooks CMakeLists.txt into the build
-    externalNativeBuild {
-        cmake {
-            path("src/main/cpp/CMakeLists.txt")
-        }
-    }
 }
 
 
 dependencies {
+
+    implementation("com.google.mediapipe:tasks-vision:0.10.14")
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:latest.release")
+
     val cameraXVersion = "1.4.0"        // stable CameraX 1.4.0 :contentReference[oaicite:0]{index=0}
     implementation("androidx.camera:camera-core:$cameraXVersion")
     implementation("androidx.camera:camera-camera2:$cameraXVersion")
